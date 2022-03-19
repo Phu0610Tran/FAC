@@ -2,27 +2,89 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.fac">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/app"
         android:supportsRtl="true"
         android:theme="@style/Theme.FAC">
         <activity
-            android:name=".TracnghiemActivity"
+            android:name=".CongDongPhuHuynh_Activity"
             android:exported="true" />
         <activity
-            android:name=".BanBeActivity"
+            android:name=".VUICUNGTAICHINH.ChoiNgayVong2"
+            android:exported="true"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".BangXepHangActivity"
+            android:name=".PHUHUYNH.DangBaiActivity"
             android:exported="true" />
         <activity
-            android:name=".ChoiNgayActivity"
+            android:name=".PHUHUYNH.BinhLuanActivity"
             android:exported="true" />
         <activity
-            android:name=".VuiCungTaiChinhActivity"
+            android:name=".DoTuoi_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PHUHUYNH.HoatDongCuaCon"
+            android:exported="true" />
+        <activity
+            android:name=".PHUHUYNH.TrangCaNhan_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PHUHUYNH.BangtinFac_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".PHUHUYNH.Home_PhuHuynh"
+            android:exported="true" />
+        <activity
+            android:name=".SOTIETKIEM.SoTietKiem"
+            android:exported="true" />
+        <activity
+            android:name=".TROLYTAICHINH.ChiTietTienDo_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".TROLYTAICHINH.ChotKeHoach_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".TROLYTAICHINH.LichSu_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".TROLYTAICHINH.TienDo_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".TROLYTAICHINH.ThanhTich_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".TROLYTAICHINH.TroLyTaiChinhActivity"
+            android:exported="true" />
+        <activity
+            android:name=".VUICUNGTAICHINH.TimKiemBanBe_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".VUICUNGTAICHINH.XepHang_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".VUICUNGTAICHINH.TracnghiemActivity"
+            android:exported="true"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".VUICUNGTAICHINH.BanBeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".VUICUNGTAICHINH.ChoiNgayActivity"
+            android:exported="true"
+            android:screenOrientation="userLandscape" />
+        <activity
+            android:name=".VUICUNGTAICHINH.VuiCungTaiChinhActivity"
             android:exported="true" />
         <activity
             android:name=".RegistrationActivity"
@@ -34,7 +96,10 @@
             android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".TROLYTAICHINH.LapKeHoach_Activity"
+            android:exported="true" />
+        <activity
+            android:name=".AnimationActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,6 +107,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

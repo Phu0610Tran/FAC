@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/backgroup"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PHUHUYNH.Home_PhuHuynh">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/logo"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_tk_home_phuhuynh"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/user"/>
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/tentk_home_phuhuynh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trần Trọng Phú"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:background="@drawable/custom_btn"
+
+                android:textColor="@color/black"
+                android:layout_gravity="center"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/dangxuat_home_phuhuynh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng Xuất"
+                android:textStyle="bold"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:background="@drawable/custom_btn"
+                android:textColor="@color/black"
+                android:layout_gravity="center"/>
+
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/nau"
+        android:text="HOME"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <Button
+            android:id="@+id/bangtinfac"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="BẢNG TIN FAC"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button_vang"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/congdongfac"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="CỘNG ĐỒNG FAC"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button_vang"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/trangcanhan"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="TRANG CÁ NHÂN"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button_vang"
+            android:layout_gravity="center"/>
+        <Button
+            android:id="@+id/hoatdongcuacon"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="HOẠT ĐỘNG CỦA CON"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button_vang"
+            android:layout_gravity="center"/>
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="12dp"
+            android:text="HỖ TRỢ KHÁCH HÀNG"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:background="@drawable/custom_button_vang"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</LinearLayout>

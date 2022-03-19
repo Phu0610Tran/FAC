@@ -20,14 +20,14 @@
         android:textColor="@color/black"
         android:layout_marginBottom="20dp"
         android:text="Financial Assistant For Children "/>
-    <Button
-        android:id="@+id/btn_dangky"
-        android:layout_marginBottom="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ĐĂNG KÝ"
-        android:textColor="@color/black"
-        android:background="@drawable/custom_button"/>
+<!--    <Button-->
+<!--        android:id="@+id/btn_dangky"-->
+<!--        android:layout_marginBottom="20dp"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="ĐĂNG KÝ"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:background="@drawable/custom_button"/>-->
     <Button
         android:id="@+id/btn_dangnhap"
         android:layout_marginBottom="20dp"

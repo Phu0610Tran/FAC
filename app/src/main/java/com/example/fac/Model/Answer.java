@@ -2,9 +2,9 @@ package com.example.fac.Model;
 
 public class Answer {
     private String content;
-    private boolean isCorrect;
+    private int isCorrect;
 
-    public Answer(String content, boolean isCorrect) {
+    public Answer(String content, int isCorrect) {
         this.content = content;
         this.isCorrect = isCorrect;
     }
@@ -17,11 +17,11 @@ public class Answer {
         this.content = content;
     }
 
-    public boolean isCorrect() {
+    public int getIsCorrect() {
         return isCorrect;
     }
 
-    public void setCorrect(boolean correct) {
-        isCorrect = correct;
+    public void setIsCorrect(int isCorrect) {
+        this.isCorrect = isCorrect;
     }
 }

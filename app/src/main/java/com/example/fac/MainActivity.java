@@ -19,29 +19,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         database = new Database(this,"FAC",null,2);
-//        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
-//        ", Ten VARCHAR(150), MoTa VARCHAR(250), HinhAnh BLOB)");
+        database.QueryData("CREATE TABLE IF NOT EXISTS DoAn(Id INTEGER PRIMARY KEY AUTOINCREMENT" +
+        ", Ten VARCHAR(150), MoTa VARCHAR(250), HinhAnh BLOB)");
+        startActivity(new Intent(MainActivity.this,LoginActivity.class));
         Anhxa();
         Events();
+        finish();
     }
 
     private void Events() {
         btn_dangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
             }
         });
-        btn_dangky.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
-            }
-        });
+//        btn_dangky.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(new Intent(MainActivity.this,RegistrationActivity.class));
+//            }
+//        });
     }
 
     private void Anhxa() {
         btn_dangnhap = findViewById(R.id.btn_dangnhap);
-        btn_dangky = findViewById(R.id.btn_dangky);
+//        btn_dangky = findViewById(R.id.btn_dangky);
     }
 }

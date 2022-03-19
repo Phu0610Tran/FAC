@@ -8,19 +8,27 @@
     android:background="@drawable/bg_choingay"
     android:padding="10dp"
     android:gravity="center"
-    tools:context=".TracnghiemActivity">
+    tools:context=".VUICUNGTAICHINH.TracnghiemActivity">
+    <ImageView
+        android:id="@+id/quaylai_tng"
+        android:layout_width="50dp"
+        android:layout_height="70dp"
+        android:padding="10dp"
+        android:layout_gravity="right"
+        android:src="@drawable/quaylai" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:orientation="horizontal">
+
             <RelativeLayout
                 android:layout_width="70dp"
-                android:layout_height="70dp"
-                >
+                android:layout_height="70dp">
 
                 <ImageView
                     android:layout_width="60dp"
@@ -28,29 +36,34 @@
                     android:layout_centerInParent="true"
                     android:src="@drawable/khung_avata" />
 
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_tk_tng"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_centerInParent="true"
                     android:src="@drawable/avata_mau1" />
+
+
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/ten_tk_tng"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trần Trọng Phú"
                 android:layout_gravity="center"
-                android:textStyle="bold"
-                android:textSize="15sp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"
+                android:background="@drawable/custom_btn"
                 android:paddingLeft="5dp"
+                android:paddingTop="5dp"
                 android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                android:text="Trần Trọng Phú"
                 android:textColor="@color/black"
-                android:background="@drawable/custom_btn"/>
+                android:textSize="15sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <TextView
+            android:id="@+id/diem_tk_tng"
             android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:gravity="center"

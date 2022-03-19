@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fac.Model.TaiKhoan;
+import com.example.fac.PHUHUYNH.Home_PhuHuynh;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText edtTaikhoan,edtMatkhau;
     CheckBox cbLuumk;
     TextView txtQuenmk;
-    ImageView img_quaylai;
+
     String mUsername = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +32,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void Events() {
-        img_quaylai.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-            }
-        });
         btnDangnhap_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,13 +52,13 @@ public class LoginActivity extends AppCompatActivity {
             if(MainActivity.taiKhoan.getMAQUYEN()==1)
 
             {
-                Intent iTrangchu = new Intent(LoginActivity.this, HomeActivity.class);
+                Intent iTrangchu = new Intent(LoginActivity.this, DoTuoi_Activity.class);
 
                 startActivity(iTrangchu);
             }
             else
             {
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                startActivity(new Intent(LoginActivity.this, Home_PhuHuynh.class));
             }
 
         } else {
@@ -76,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
         cbLuumk = findViewById(R.id.cbLuumk);
         edtMatkhau = findViewById(R.id.edtMatkhau);
         edtTaikhoan = findViewById(R.id.edtTaikhoan);
-        img_quaylai = findViewById(R.id.img_quaylai);
+
         btnDangnhap_login = findViewById(R.id.btnDangnhap_login);
 
     }

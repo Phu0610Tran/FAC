@@ -1,38 +1,55 @@
-package com.example.fac;
+package com.example.fac.VUICUNGTAICHINH;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.fac.MainActivity;
 import com.example.fac.Model.Answer;
 import com.example.fac.Model.Question;
+import com.example.fac.R;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class TracnghiemActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView tv_question;
     private TextView tv_content_question;
-    private TextView tv_answer1,tv_answer2,tv_answer3,tv_answer4;
+    private TextView tv_answer1,tv_answer2,tv_answer3,tv_answer4,ten_tk_tng,diem_tk_tng;
+    CircleImageView img_tk_tng;
     private List<Question> questionList;
     private Question mQuestion;
     private int currentQuestion = 0;
     private int cau = 1;
+    private int dung=0;
+    ImageView quaylai_tng;
+    float vong;
+    int idbo=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracnghiem);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         AnhXa();
+        CheckThongTin();
+        Intent intent = getIntent();
+
+        vong = intent.getFloatExtra("vong", 1.5F);
+
         questionList = getListQuestion();
         if(questionList.isEmpty())
         {
@@ -44,6 +61,32 @@ public class TracnghiemActivity extends AppCompatActivity implements View.OnClic
         int val = random1.nextInt(cursor.getInt(0) - 1);
         currentQuestion=val;
         setDataQuestion(questionList.get(currentQuestion));
+    }
+
+    @Override
+    protected void onStart() {
+        CheckThongTin();
+        super.onStart();
+    }
+
+    private void CheckThongTin() {
+        Cursor cursor = MainActivity.database.Getdata("SELECT TENTAIKHOAN,HINHANH,DIEM FROM TAIKHOAN WHERE IDTAIKHOAN = " + MainActivity.taiKhoan.getMATK());
+        cursor.moveToNext();
+        ten_tk_tng.setText(cursor.getString(0));
+        if(String.valueOf(cursor.getInt(2)).length() == 0 )
+        {
+            diem_tk_tng.setText("0");
+        }else {
+            diem_tk_tng.setText(String.valueOf(cursor.getInt(2)));
+        }
+
+        if (MainActivity.taiKhoan.getHINHANH()!=null){
+            byte[] hinhAnh = MainActivity.taiKhoan.getHINHANH();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(hinhAnh,0, hinhAnh.length);
+            img_tk_tng.setImageBitmap(bitmap);
+        }else {
+            img_tk_tng.setImageResource(R.drawable.user);
+        }
     }
     private void setDataQuestion(Question question) {
         if(question == null){
@@ -67,6 +110,16 @@ public class TracnghiemActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void AnhXa() {
+        quaylai_tng = findViewById(R.id.quaylai_tng);
+        quaylai_tng.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+        diem_tk_tng = findViewById(R.id.diem_tk_tng);
+        ten_tk_tng = findViewById(R.id.ten_tk_tng);
+        img_tk_tng = findViewById(R.id.img_tk_tng);
         tv_question = findViewById(R.id.tv_question);
         tv_content_question = findViewById(R.id.tv_content_question);
         tv_answer1 = findViewById(R.id.tv_answer1);
@@ -91,7 +144,7 @@ public class TracnghiemActivity extends AppCompatActivity implements View.OnClic
             {
                 answerList1.add(new Answer(
                         cursor1.getString(1),
-                        Boolean.valueOf(cursor1.getString(3))
+                        cursor1.getInt(3)
                 ));
             }
             while (cursor2.moveToNext()){
@@ -101,26 +154,6 @@ public class TracnghiemActivity extends AppCompatActivity implements View.OnClic
 
         }
 
-//        List<Answer> answerList1 = new ArrayList<>();
-//        answerList1.add(new Answer("Gà",true));
-//        answerList1.add(new Answer("Cá",false));
-//        answerList1.add(new Answer("Bò",false));
-//        answerList1.add(new Answer("Lợn",false));
-//
-//        List<Answer> answerList2 = new ArrayList<>();
-//        answerList2.add(new Answer("Gà",true));
-//        answerList2.add(new Answer("Cá",false));
-//        answerList2.add(new Answer("Bò",false));
-//        answerList2.add(new Answer("Lợn",false));
-//
-//        List<Answer> answerList3 = new ArrayList<>();
-//        answerList3.add(new Answer("Gà",true));
-//        answerList3.add(new Answer("Cá",false));
-//        answerList3.add(new Answer("Bò",false));
-//        answerList3.add(new Answer("Lợn",false));
-//        list.add(new Question("Tran trong phussssssssssssssssssssssssssssssssssssssssss",1,answerList1));
-//        list.add(new Question("Tran123213 trong phu",2,answerList2));
-//        list.add(new Question("Tran5465464 trong phu",3,answerList3));
         return list;
 
     }
@@ -152,53 +185,18 @@ public class TracnghiemActivity extends AppCompatActivity implements View.OnClic
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if(answer.isCorrect()){
-                    textView.setBackgroundResource(R.drawable.custom_cautraloi_dung);
-                    nextQuestion();
-                }else {
-                    textView.setBackgroundResource(R.drawable.custom_cautraloi_sai);
-                    showAnswerCorrect(questionList.get(currentQuestion));
-                    gameOver();
-
+                dung = dung + answer.getIsCorrect();
+                diem_tk_tng.setText(String.valueOf(Integer.valueOf(diem_tk_tng.getText().toString())+ answer.getIsCorrect()));
+                nextQuestion();
                 }
-            }
-        },1000);
+        },500);
     }
 
-    private void gameOver() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                showDialog("gameover");
-
-            }
-        },1000);
-    }
-
-    private void showAnswerCorrect(Question question) {
-        if(question==null || question.getAnswerList() == null || question.getAnswerList().isEmpty()){
-            return;
-        }
-        if(question.getAnswerList().get(0).isCorrect()){
-            tv_answer1.setBackgroundResource(R.drawable.custom_cautraloi_dung);
-        }else if(question.getAnswerList().get(1).isCorrect()){
-            tv_answer2.setBackgroundResource(R.drawable.custom_cautraloi_dung);
-        }else if(question.getAnswerList().get(2).isCorrect()){
-            tv_answer3.setBackgroundResource(R.drawable.custom_cautraloi_dung);
-        }else {
-            tv_answer4.setBackgroundResource(R.drawable.custom_cautraloi_dung);
-        }
-    }
 
     private void nextQuestion() {
-//        if(currentQuestion == questionList.size() - 1){
-//            showDialog(
-//                    "You win"
-//            );
-        if(cau >= 10){
-            showDialog(
-                    "You win"
-            );
+
+        if(cau >= 5){
+            showDialog();
         }else {
             Random random1 = new Random();
             Cursor cursor = MainActivity.database.Getdata("SELECT CAUHOI FROM DAPAN ORDER BY CAUHOI DESC");
@@ -217,25 +215,50 @@ public class TracnghiemActivity extends AppCompatActivity implements View.OnClic
         }
 
     }
-    private void showDialog(String message){
+    private void showDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(message);
-        builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-//                cau=1;
-//                Random random1 = new Random();
-//                Cursor cursor = MainActivity.database.Getdata("SELECT CAUHOI FROM DAPAN ORDER BY CAUHOI DESC");
-//                cursor.moveToNext();
-//                int val = random1.nextInt(cursor.getInt(0) - 1);
-//                currentQuestion=val;
-//                setDataQuestion(questionList.get(currentQuestion));
-                dialogInterface.dismiss();
+        LayoutInflater inflater = getLayoutInflater();
+        View view = inflater.inflate(R.layout.chucmung,null);
+        final ImageView img_chucmung = view.findViewById(R.id.img_chucmung);
+        final TextView txt_chucmung = view.findViewById(R.id.txt_chucmung);
+        final TextView txt_diem = view.findViewById(R.id.txt_diem);
+        int idtk = MainActivity.taiKhoan.getMATK();
+        if(dung == 20 ){
 
-                startActivity(new Intent(TracnghiemActivity.this,ChoiNgayActivity.class));
+            MainActivity.database.VONGGAME(idtk,vong,3);
+
+            img_chucmung.setImageResource(R.drawable.icon_vui_basao);
+            txt_chucmung.setText("Thật ấn tượng, con sẽ là doanh nhân tương lai !");
+        }else if(dung>15){
+            MainActivity.database.VONGGAME(idtk,vong,2);
+            img_chucmung.setImageResource(R.drawable.icon_vui_haisao);
+            txt_chucmung.setText("Con đã làm tốt đấy !");
+
+        }else{
+            MainActivity.database.VONGGAME(idtk,vong,1);
+            img_chucmung.setImageResource(R.drawable.icon_vui_motsao);
+            txt_chucmung.setText("Con vẫn nên tiến bộ hơn nữa vì vẫn còn sai lầm trong chi tiêu !");
+
+        }
+        txt_diem.setText(String.valueOf(dung) + " Điểm");
+        builder.setView(view);
+        builder.setCancelable(false);
+        MainActivity.database.Tangdiem(idtk,Integer.valueOf(diem_tk_tng.getText().toString()));
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (vong > 2F && vong < 3F)
+                {
+                    startActivity(new Intent(TracnghiemActivity.this, ChoiNgayVong2.class));
+
+                }else if(vong < 2F )
+                {
+                    startActivity(new Intent(TracnghiemActivity.this, ChoiNgayActivity.class));
+
+                }
+                finish();
             }
-        });
+        },5000);
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }

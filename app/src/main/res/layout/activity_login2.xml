@@ -6,116 +6,150 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
     android:background="@drawable/backgroup">
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/backgroup"
         android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:text="ĐĂNG NHẬP"
-            android:textColor="@color/nau"
-            android:textSize="25dp"
-            android:textStyle="bold" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/edtTaikhoan"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="10dp"
-                android:background="#FFFFFF"
-                android:ems="10"
-                android:hint="Tài khoản"
-                android:inputType="textPersonName"
-                android:paddingLeft="20dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
-
-            <EditText
-                android:id="@+id/edtMatkhau"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_margin="10dp"
-                android:background="#FFFFFF"
-
-                android:ems="10"
-                android:hint="Mật khẩu"
-
-                android:inputType="textPassword"
-                android:paddingLeft="20dp"
-                tools:ignore="SpeakableTextPresentCheck" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-
         <LinearLayout
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="700dp"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:src="@drawable/logo" />
 
-            <CheckBox
-                android:id="@+id/cbLuumk"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:text="Lưu mật khẩu"
-                android:textSize="12dp" />
+                android:layout_marginTop="10dp"
+                android:text="ĐĂNG NHẬP"
+                android:textColor="@color/nau"
+                android:textSize="25dp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/txtQuenmk"
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/edtTaikhoan"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="10dp"
+                    android:background="#FFFFFF"
+                    android:ems="10"
+                    android:hint="Tài khoản"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/edtMatkhau"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_margin="10dp"
+                    android:background="#FFFFFF"
+
+                    android:ems="10"
+                    android:hint="Mật khẩu"
+
+                    android:inputType="textPassword"
+                    android:paddingLeft="20dp"
+                    tools:ignore="SpeakableTextPresentCheck" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/cbLuumk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:text="Lưu mật khẩu"
+                    android:textSize="12dp" />
+
+                <TextView
+                    android:id="@+id/txtQuenmk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="40dp"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="Quên mật khẩu"
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnDangnhap_login"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:layout_marginRight="40dp"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:text="Quên mật khẩu"
-                android:textColor="#000000"
-                android:textSize="12dp" />
+                android:layout_marginTop="12dp"
+                android:background="@drawable/custom_button_vang"
 
+                android:text="XÁC NHẬN"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#1874BD"
+                android:text="FACEBOOK"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+            <Button
+                android:id="@+id/free"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#00BCD4"
+                android:text="ZALO"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+            <Button
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+
+                android:backgroundTint="#FF9800"
+                android:text="DÙNG THỬ MIỄN PHÍ"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btnDangnhap_login"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/custom_button_vang"
-
-            android:text="XÁC NHẬN"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
     </LinearLayout>
-    <ImageView
-        android:id="@+id/img_quaylai"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:src="@drawable/quaylai"/>
+
+
 
 </RelativeLayout>

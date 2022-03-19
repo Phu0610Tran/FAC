@@ -20,15 +20,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:padding="5dp"
             >
-            <ImageView
+
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/img_tk_home"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:background="@null"
-                android:scaleType="fitXY"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:src="@drawable/user"/>
+
             <TextView
+                android:layout_marginLeft="5dp"
                 android:id="@+id/tentk_home"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -37,9 +39,25 @@
                 android:paddingStart="5dp"
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
-                android:textSize="20sp"
+                android:background="@drawable/custom_btn"
+
                 android:textColor="@color/black"
                 android:layout_gravity="center"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/dangxuat_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng Xuất"
+                android:textStyle="bold"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:background="@drawable/custom_btn"
+                android:textColor="@color/black"
+                android:layout_gravity="center"/>
+
 
 
         </LinearLayout>
@@ -72,6 +90,7 @@
             android:background="@drawable/custom_button_vang"
             android:layout_gravity="center"/>
         <Button
+            android:id="@+id/tltc"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"
@@ -81,6 +100,7 @@
             android:background="@drawable/custom_button_vang"
             android:layout_gravity="center"/>
         <Button
+            android:id="@+id/sotietkiem"
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:layout_marginTop="12dp"

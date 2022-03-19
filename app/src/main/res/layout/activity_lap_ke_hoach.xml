@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/backgroup"
+    tools:context=".TROLYTAICHINH.LapKeHoach_Activity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:padding="5dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="Hãy nói cho mình biết kế hoạch của bạn là gì nào?"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="Bạn muốn tiết kiệm bao nhiêu?"/>
+
+    <EditText
+        android:id="@+id/edt_sotien"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:hint="100.000 VND"
+        android:background="@drawable/custom_btn"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:text="Bạn muốn tiết kiệm trong bao lâu?"/>
+
+    <EditText
+        android:id="@+id/edt_thoigian"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:hint="2 tuần"
+        android:background="@drawable/custom_btn"
+        />
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/haituan"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="2 tuần"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:background="@drawable/custom_cautraloi_chon"/>
+        <TextView
+            android:id="@+id/motthang"
+            android:layout_margin="10dp"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="1 tháng"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:background="@drawable/custom_cautraloi_chon"/>
+        <TextView
+            android:id="@+id/haithang"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:text="2 tháng"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:background="@drawable/custom_cautraloi_chon"/>
+    </LinearLayout>
+    <Button
+        android:id="@+id/xacnhan_lapkehoach"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="Xác nhận"
+        android:textColor="@color/black"
+        android:background="@drawable/custom_cautraloi_chon"/>
+</LinearLayout>

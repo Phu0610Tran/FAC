@@ -10,6 +10,7 @@ public class TaiKhoan {
     String DIACHI;
     int MAQUYEN;
     byte[] HINHANH;
+    int DIEM;
 
     public byte[] getHINHANH() {
         return HINHANH;
@@ -19,7 +20,7 @@ public class TaiKhoan {
         this.HINHANH = HINHANH;
     }
 
-    public TaiKhoan(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI, byte[] HINHANH) {
+    public TaiKhoan(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI, byte[] HINHANH, int DIEM) {
         this.MATK = MATK;
         this.TENTK = TENTK;
         this.MATKHAU = MATKHAU;
@@ -29,22 +30,20 @@ public class TaiKhoan {
         this.DIACHI = DIACHI;
         this.MAQUYEN = MAQUYEN;
         this.HINHANH = HINHANH;
+        this.DIEM = DIEM;
+    }
+
+    public int getDIEM() {
+        return DIEM;
+    }
+
+    public void setDIEM(int DIEM) {
+        this.DIEM = DIEM;
     }
 
     public TaiKhoan() {
         MATK=-1;
     }
-
-//    public TaiKhoan(int MATK, String TENTK, String MATKHAU, int SDT, String EMAIL, String NGAYSINH, int MAQUYEN, String DIACHI) {
-//        this.MATK = MATK;
-//        this.TENTK = TENTK;
-//        this.MATKHAU = MATKHAU;
-//        this.SDT = SDT;
-//        this.EMAIL = EMAIL;
-//        this.NGAYSINH = NGAYSINH;
-//        this.MAQUYEN = MAQUYEN;
-//        this.DIACHI = DIACHI;
-//    }
 
     public String getEMAIL() {
         return EMAIL;
